@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import Users from '../models/users';
+import Users from '../models/users.js';
 
 const router = new Router(); 
 
@@ -22,3 +22,7 @@ router.post('/register', async (req, res) => {
         console.log(e.message);
     }
 })
+
+
+
+export default router;
