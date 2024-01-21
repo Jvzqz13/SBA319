@@ -1,12 +1,14 @@
 import { Router } from 'express';
 import Users from '../models/users.js';
+import Profiles from '../models/profiles.js';
 
 const router = new Router(); 
 
 //POST - Create a User/Register User
 router.post('/register', async (req, res) => {
     try {
-        const user = await Users.create(req.body)
+        const user = await Users.create(req.body);
+        await Profiles.create({user_id: user.id});
         res.status(201).json(user)
     } catch (e) {
         console.log(e.message);
@@ -32,6 +34,20 @@ router.get('/:id', async (req, res) => {
         console.log(e.message);
     }
 })
+
+
+////////// this one is still not working /////////
+//GET - GET USER BY USERNAME
+router.get('/username/:usrname', async (req, res) => {
+    try {
+        const usrname = await Users.findOne(req.params.name);
+        res.status(200).json(usrname);
+    } catch (e){
+        console.log(e);
+    }
+})
+////////// this one is still not working /////////
+
 
 //PUT - UPDATE A USER BY ID
 router.put('/:id', async (req, res) => {
