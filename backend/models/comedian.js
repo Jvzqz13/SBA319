@@ -18,6 +18,9 @@ const comedianSchema = new mongoose.Schema({
     }, 
     showdates: {
         type: Date
+    },
+    genre: {
+        type: String
     }
 })
 
