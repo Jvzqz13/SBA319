@@ -6,17 +6,21 @@ const profileSchema = new mongoose.Schema({
         ref:"User",
         required: true
     },
-    bio: {
+    profilePicture: {
         type: String,
-        minLength: 20
+        default: ""
     },
     subscribed: {
-        type: String,
+        type: Array,
+        default: []
     },
     playlists: {
-        type: String
+        type: Array,
+        default: []
     }
 
 }, {timestamps: true})
+
+profileSchema.index({user_id: 1})
 
 export default mongoose.model('Profile', profileSchema)

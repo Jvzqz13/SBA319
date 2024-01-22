@@ -5,23 +5,35 @@ const comedianSchema = new mongoose.Schema({
         type: String
     },
     pic:{
-        type: String
+        type: String,
+        default:""
     },
     bio:{
         type: String
     },
     specials:{
-        type: String
+        type: Array,
+        default: []
     },
     podcasts:{
-        type: String
+        type: Array,
+        default: []
     }, 
     showdates: {
-        type: Date
+        type: Array,
+        default: []
     },
     genre: {
-        type: String
+        type: Array,
+        default: []
     }
 })
+
+comedianSchema.index({name: 1});
+comedianSchema.index({specials: 1});
+comedianSchema.index({podcasts: 1});
+comedianSchema.index({showdates: 1});
+comedianSchema.index({genre: 1});
+
 
 export default mongoose.model('Comedian', comedianSchema)

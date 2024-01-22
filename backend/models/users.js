@@ -17,8 +17,14 @@ const usersSchema = new mongoose.Schema({
     },
     username:{
         type: String,
+        required: true,
         minLength: 4,
-        maxLenth: 20
+        maxLenth: 20,
+        unique: true
+    },
+    isAdmin:{
+        type: Boolean,
+        default: false
     }
 
 }, {timestamps: true});
