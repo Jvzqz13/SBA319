@@ -6,6 +6,7 @@ import morgan from 'morgan';
 
 import userRouter from './routes/users.js'
 import profileRouter from './routes/profiles.js';
+import comedianRouter from './routes/comedians.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use('/users', userRouter);
 app.use('/profiles', profileRouter);
+app.use('/comedians', comedianRouter);
 
 
 

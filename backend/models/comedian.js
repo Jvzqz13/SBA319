@@ -2,30 +2,36 @@ import mongoose from "mongoose";
 
 const comedianSchema = new mongoose.Schema({
     name: {
-        type: String
+        type: String,
+        required: true
     },
     pic:{
         type: String,
-        default:""
+        default:"",
     },
     bio:{
-        type: String
+        type: String,
+        required: true
     },
     specials:{
         type: Array,
-        default: []
+        default: [],
+        required: true
     },
     podcasts:{
         type: Array,
-        default: []
+        default: [],
+        required: true
     }, 
     showdates: {
         type: Array,
-        default: []
+        default: [],
+        required: true
     },
     genre: {
         type: Array,
-        default: []
+        default: [],
+        required: true
     }
 })
 
